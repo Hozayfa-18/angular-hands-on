@@ -26,11 +26,11 @@ import { ActivatedRoute, Router } from '@angular/router';
     FormsModule,
     SharedAntDesignModule,
     // * Task 4: Starts here
-
+    AddTodoComponent,
     
     // * Task 4: Continues to todo-list.component.html (A)
     // * Task 6: Starts here
-
+    TodoCardComponent
     
     // * Task 6: Continues to todo-list.component.html (A)
   ],

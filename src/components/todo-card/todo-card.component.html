@@ -3,7 +3,7 @@
     <div nz-col nzFlex="auto">
       <p nz-typography>
         <!-- * Task 5: Continues from todo-card.component.ts (A) -->
-
+        {{todoTitle}}
         
         <!-- * Task 5: Continues below (B) -->
       </p>
@@ -15,7 +15,7 @@
         nzType="primary"
         nzDanger
         nzShape="circle"
-
+        (click)="onDeleteTodo.emit(todoId)"
         
       >
         <!-- * Task 5: Ends here -->

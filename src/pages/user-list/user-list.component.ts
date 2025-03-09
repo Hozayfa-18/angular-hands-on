@@ -23,14 +23,24 @@ export class UserListComponent implements OnInit {
   users: Array<IUser> = [];
 
   // * Task 2: Starts here
-  
+  userService = inject(UserService);
   
   // * Task 2: Continues below (A)
   router = inject(Router);
 
   ngOnInit(): void {
     // * Task 2: Continues from here (A)
-
+    let tempUsersList= this.userService.getUsers();
+    if(tempUsersList){
+      this.users=tempUsersList
+    }else{
+      this.userService.fetchUsers().subscribe({
+        next: (data) =>{
+          this.users = data
+          this.userService.setUsers(data)
+        }
+      })
+    }
     
     // * Task 2: Ends here
   }

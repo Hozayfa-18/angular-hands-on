@@ -15,7 +15,11 @@ import { FormsModule } from '@angular/forms';
 })
 export default class TodoCardComponent {
   // * Task 5: Starts here
+  @Input() todoTitle:string = ""
+  @Input() todoId:number = 0;
 
+  @Output() onDeleteTodo: EventEmitter<number> =
+    new EventEmitter()
   
   // * Task 5: Continues to todo-card.component.html (A)
 }
