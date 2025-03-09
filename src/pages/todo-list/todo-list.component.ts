@@ -44,13 +44,22 @@ export class TodoListComponent implements OnInit, OnDestroy {
 
   router = inject(Router);
   // * Task 7: Starts here
-
-  
+  route = inject(ActivatedRoute)
+  userService = inject(UserService)
   // * Task 7: Continues below (A)
 
   ngOnInit(): void {
     // * Task 7: Continues here (A)
-
+    this.paramId= this.route.snapshot.paramMap.get('userId')!
+    let users: Array<IUser> = this.userService.getUsers()
+    let foundUser: IUser | undefined = users.find(
+      (user) => user.id === parseInt(this.paramId))
+    
+    if(foundUser){
+      this.todos = foundUser.todos
+    }else{
+      this.todos=[]
+    }
     
     // * Task 7: Ends here
   }
